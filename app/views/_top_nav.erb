@@ -1,0 +1,20 @@
+<nav>
+  <span id="logo"><a href = "/">Flash!Cards</a></span>
+  <ul>
+    <% if @current_user%>
+      <li><a href = "/game">Play a Game</a></li>
+      <li><a href = "/logout">Log Out</a></li>
+    <% else %>
+      <li class="signup_button"><a href = "/" class = "signup">Sign-Up</a>
+
+      <li class="login_button"><a href = "/" class = "login">Log-In</a>
+       
+
+    <% end %>
+
+
+  </ul>
+      
+</nav>
+<%= erb :_signup_form, :layout => false %></li>
+<%= erb :_login_form, :layout => false %></li>
