@@ -2,7 +2,7 @@ class CreateTables < ActiveRecord::Migration
   def change
 
   	create_table(:users) do |user|
-  		user.string :email, :unique => true, null: false
+  		user.string :email, :unique => true,  null: false
   		user.string :password_hash
   		user.timestamps
   	end	

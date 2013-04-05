@@ -210,11 +210,9 @@ capitals = {
 "Ghana" => "Accra",
 "Nigeria" => "Abuja",
 "United Arab Emirates" => "Abu Dhabi"
-
 }
 
 lyrics = {
-
 "making love to you was never second best" => "melt with you",
 "i've got to run away from the pain you drive into the heart of me" => "tainted love",
 "so wild so free so far from me. you're all i want my fantasy" => "photograph",
@@ -319,8 +317,7 @@ lyrics = {
 "mine's an ordinary life working when it's daylight and sleeping when it's night" => "take me home",
 
 }
-
-----------
+     
 
 what_is = {
 
@@ -540,23 +537,23 @@ what_is_deck = Deck.create(:name => 'What is')
 #create cards
 
 capitals.each do |t,d|
-  Card.create(:term => 't', :definition => 'd', :deck => capitals_deck)
+  Card.create(:term => t, :definition => d, :deck => capitals_deck)
 end
 
 lyrics.each do |t,d|
-  Card.create(:term => 't', :definition => 'd', :deck => lyrics)
+  Card.create(:term => t, :definition => d, :deck => lyrics_deck)
 end
 
 what_is.each do |t,d|
-  Card.create(:term => 't', :definition => 'd', :deck => what_is)
+  Card.create(:term => t, :definition => d, :deck => what_is_deck)
 end
 
 # create users
 
-User.create(:email => 'ben@email.com', :password => 'benf')
-User.create(:email => 'hannah@email.com', :password => 'hannahw')
-User.create(:email => 'chrism@email.com', :password => 'chrism')
-User.create(:email => 'alex@email.com', :password => 'alexr')
+# User.create(:email => 'ben@email.com', :password => 'benf')
+# User.create(:email => 'hannah@email.com', :password => 'hannahw')
+# User.create(:email => 'chrism@email.com', :password => 'chrism')
+# User.create(:email => 'alex@email.com', :password => 'alexr')
 
 
 
