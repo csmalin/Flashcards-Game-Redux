@@ -1,12 +1,5 @@
 <div class="container">
-<h2>Welcome <%= @current_user.email %></h2>
 
-<h2>Stats</h2>
-
-Total rounds for user
-<%= @current_user.rounds.length %></br>
-Total guesses for user
-<%= @current_user.guesses %></br>
 
 <table border="1">
 
@@ -16,7 +9,7 @@ Total guesses for user
   <th>Average</th>
 </tr>
 
-<% 0.upto(@decks.length-1) do |x| %>
+<% @decks.each do |x| %>
 
 <tr>
 <td><%= @decks[x].name %></td>

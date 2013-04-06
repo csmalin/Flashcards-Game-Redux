@@ -1,4 +1,13 @@
 
+<h2>Welcome <%= @current_user.email %></h2>
+
+<h2>Stats</h2>
+
+Total rounds for user
+<%= @current_user.rounds.length %></br>
+Total guesses for user
+<%= @current_user.guesses %></br>
+
 Choose a flashcard deck:
 <% @decks.each do |d| %>
 <ul>
@@ -15,12 +24,12 @@ Choose a flashcard deck:
   <th>Average</th>
 </tr>
 
-<% 0.upto(@decks.length-1) do |x| %>
+<% @decks.each do |x| %>
 
-<tr>
+<!-- <tr>
 <td><%= @decks[x].name %></td>
 <td><%= @played[x] %></td>
-<td><%= @avg[x] %></td>
+<td><%= @avg[x] %></td> -->
 </tr>
 
 <% end %>
