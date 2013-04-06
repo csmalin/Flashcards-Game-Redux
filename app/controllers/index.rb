@@ -5,15 +5,15 @@
 get '/' do
 	@decks = Deck.all
 
-	@user_deck = Deck.where(:user_id => @user.id)
+	# @user_deck = Deck.where(:user_id => @current_user.id)
 	@played = [1,2,3]
 	@avg = [42, 54, 78]
 	
-	played_decks = Deck.where(:user_id => @user.id)
+	# played_decks = Deck.where(:user_id => @current_user.id)
 
-	played_decks.each do |x|
+	# played_decks.each do |x|
   
-	end
+	# end
 
 
 	@avg = [42, 58, 76] 

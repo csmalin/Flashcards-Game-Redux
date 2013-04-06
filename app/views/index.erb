@@ -42,10 +42,10 @@ Choose a flashcard deck:
   <th>Average</th>
 </tr>
 
-<% 0.upto(@user_deck.length-1) do |x| %>
+<% 0.upto(@decks.length-1) do |x| %>
 
 <tr>
-<td><%= @user_deck[x].name %></td>
+<td><%= @decks[x].name %></td>
 <td><%= @played[x] %></td>
 <td><%= @avg[x] %></td>
 </tr>
