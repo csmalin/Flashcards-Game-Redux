@@ -21,7 +21,6 @@ end
 post '/login' do
   user = User.authenticate(params[:email].downcase, params[:password])
   if user
-    user.login
     session[:user_id] = @user.id
     redirect '/game'
   else
@@ -37,7 +36,6 @@ end
 
 post '/signup' do 
   user = User.create(params)
-  user.login
   session[:user_id] = user.id
   redirect '/game'
 end
