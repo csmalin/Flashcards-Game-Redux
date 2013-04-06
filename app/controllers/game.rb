@@ -1,10 +1,12 @@
 get "/game" do
+  signed_in?
   @decks = Deck.all
 
   erb :deck
 end
 
 get "/game/:deck_id" do
+  signed_in?
   @round = @current_user.rounds.create(:deck_id => params[:deck_id])
   session[:round] = @round.id
   @round.deck = Deck.find(params[:deck_id])
@@ -15,6 +17,7 @@ get "/game/:deck_id" do
 end
 
 post "/game/:deck_id/:card_id" do 
+  signed_in?
   @round = Round.find_by_id(session[:round])
   @guess = params[:answer]
   previous_card = Card.find(params[:card_id])
