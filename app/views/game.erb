@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="card">
 		<% if @card %>
-			<h1><% @card.term %></h1>
+			<h1><%= @card.term %></h1>
 			<form id="answer" action="/game/guess/<%= @card.id %>" method="post" >
 				<input type="text" name="answer" placeholder="answer"/><br>
 				<button type="submit" name="answer"/>Submit</button>

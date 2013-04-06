@@ -1,6 +1,6 @@
-before do
-  @current_user = User.find_by_token(session[:token])
-end
+# before do
+#   @current_user = User.find_by_token(session[:token])
+# end
 
 get '/' do
 	@decks = Deck.all
