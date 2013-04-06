@@ -555,6 +555,17 @@ User.create(:email => 'hannah@email.com', :password => 'hannahw')
 User.create(:email => 'chrism@email.com', :password => 'chrism')
 User.create(:email => 'alex@email.com', :password => 'alexr')
 
+# create rounds
+
+20.times do |x|
+  Round.create(:user_id => [1,2,3,4].sample, :deck_id => [1,2,3].sample)
+end	
+
+30.times do |x|
+	Guess.create(:round_id => [1,2,3,4,5,6,7,8,9,10].sample, :card_id => [1,2,3,4,5,6,7,8,9,10].sample, :correct => [true,false].sample)
+end
+
+
 
 
 
