@@ -17,9 +17,9 @@ end
 
 post "/game/:deck_id/:card_id" do 
   guess = params[:answer]
-  card = Card.find(params[:card_id])
+  previous_card = Card.find(params[:card_id])
 
-  is_correct = (card.definition == guess) 
+  is_correct = (previous_card.definition == guess) 
 
   previous_card.guesses << Guess.create(correct: is_correct)
 
