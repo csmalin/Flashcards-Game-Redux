@@ -1,6 +1,5 @@
 <div class="container">
 	<div class="card">
-		<h1><%= @deck.name %></h1>
 		<% if @card %>
 			<h2><%= @card.term %></h2>
 			<form id="answer" action="/game/guess/<%= @card.id %>" method="post" >
