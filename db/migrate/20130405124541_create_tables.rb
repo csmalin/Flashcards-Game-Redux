@@ -3,7 +3,7 @@ class CreateTables < ActiveRecord::Migration
 
   	create_table(:users) do |user|
   		user.string :email, :unique => true,  null: false
-  		user.string :password_hash, :token
+  		user.string :password_hash
   		user.timestamps
   	end	
 

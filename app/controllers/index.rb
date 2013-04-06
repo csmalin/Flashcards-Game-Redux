@@ -1,8 +1,5 @@
-before do
-  @current_user = User.find_by_token(session[:token])
-end
-
 get '/' do
+  signed_in?
 	@decks = Deck.all
 
 	# @user_deck = Deck.where(:user_id => @current_user.id)
@@ -22,10 +19,10 @@ get '/' do
 end
 
 post '/login' do
-  @user = User.authenticate(params[:email].downcase, params[:password])
-  if @user
-    @user.login
-    session[:token] = @user.token
+  user = User.authenticate(params[:email].downcase, params[:password])
+  if user
+    user.login
+    session[:user_id] = @user.id
     redirect '/game'
   else
     redirect '/'
@@ -41,10 +38,6 @@ end
 post '/signup' do 
   user = User.create(params)
   user.login
-  session[:token] = user.token
+  session[:user_id] = user.id
   redirect '/game'
-end
-
-get '/game' do
-"Welcome to the game page!!!"
 end

@@ -18,8 +18,4 @@ class User < ActiveRecord::Base
     nil
   end
 
-  def login
-    self.update_attributes(:token => SecureRandom.uuid)
-  end
-
 end
