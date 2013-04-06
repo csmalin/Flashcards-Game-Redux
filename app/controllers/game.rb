@@ -19,10 +19,14 @@ post "/game/guess/:card_id" do
   guess = params[:answer]
   card = Card.find(params[:card_id])
 
-  correct? = card.definition == guess 
-  card.guesses = Guess.new(correct: correct?)
+  is_correct = (card.definition == guess) 
+  card.guesses = Guess.new(correct: is_correct)
 
   @card = session[:cards].shift
 
   erb :game
+end
+
+def create_round_and_deck(user)
+
 end
