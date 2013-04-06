@@ -45,6 +45,3 @@ post '/signup' do
   redirect '/game'
 end
 
-get '/game' do
-"Welcome to the game page!!!"
-end
