@@ -1,11 +1,15 @@
 .container {
-
+  margin: 20px auto;
+  width: 600px;
+  padding: 0px 20px 20px 20px;
+  border: 1px solid black;
 }
 
 th {
   text-align: left;
 }
 
+<<<<<<< HEAD
 nav{
   margin-bottom: 15px;
   background: black;
@@ -69,4 +73,8 @@ nav li a {
   vertical-align: middle;
   padding-left: 20px;
   letter-spacing: -2px;
+}
+
+ul {
+	list-style: none;
 }

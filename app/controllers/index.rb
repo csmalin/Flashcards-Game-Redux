@@ -3,6 +3,20 @@ before do
 end
 
 get '/' do
+	@decks = Deck.all
+
+	@user_deck = Deck.where(:user_id => @user.id)
+	@played = [1,2,3]
+	@avg = [42, 54, 78]
+	
+	played_decks = Deck.where(:user_id => @user.id)
+
+	played_decks.each do |x|
+  
+	end
+
+
+	@avg = [42, 58, 76] 
   # Look in app/views/index.erb
   erb :index
 end

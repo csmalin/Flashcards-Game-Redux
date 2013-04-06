@@ -1,3 +1,57 @@
 <div class="container">
- 
+
+<% if @user %>
+
+<h2>Welcome, <%= @user.name %>!</h2>
+
+<% else %>
+
+<h2>Welcome to Flashcards!</h2>
+<form action="" method="post">
+  <ul>
+    <li>Already a user? Sign in!</li>
+    <li><input type="text" name="email" placeholder="Email" autofocus="autofocus"></li>
+    <li><input type="password" name="password" placeholder="Password"></li>
+    <li><input type="submit" name="submit" value="Submit"></li>
+  </ul>
+</form>
+<form action="" method="post">
+  <ul>
+    <li>New user? Sign up!</li>
+    <li><input type="text" name="email" placeholder="Email"></li>
+    <li><input type="password" name="password" placeholder="Password"></li>
+    <li><input type="submit" name="submit" value="Submit"></li>
+</ul>
+</form>
+
+<% end %>
+
+Choose a flashcard deck:
+<% @decks.each do |d| %>
+<ul>
+  <li><a href="/game/<% d.id %>"><%= d.name %></a></li>
+</ul>
+<% end %>
+
+<h2>Stats</h2>
+<table border="1">
+
+<tr>
+  <th>Deck</th>
+  <th>Played</th>
+  <th>Average</th>
+</tr>
+
+<% 0.upto(@user_deck.length-1) do |x| %>
+
+<tr>
+<td><%= @user_deck[x].name %></td>
+<td><%= @played[x] %></td>
+<td><%= @avg[x] %></td>
+</tr>
+
+<% end %>
+
+</table>
+
 </div>
