@@ -1,3 +1,8 @@
+get "/game" do
+  @decks = Deck.all
+
+  erb :deck
+end
 
 get "/game/:deck_id" do
   @round = @current_user.rounds << Round.create()
