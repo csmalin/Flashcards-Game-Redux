@@ -1,5 +1,5 @@
 get "/game/:deck_id" do
- current_user = User.find_by_email("ben@email.com")#find_by_token(session[:token])
+ current_user = User.find_by_token(session[:token])#find_by_email("ben@email.com")
  round = current_user.rounds << Round.create()
  deck = round.last.deck = Deck.find(params[:deck_id])
  cards = deck.cards
@@ -27,8 +27,4 @@ post "/game/guess/:card_id" do
   @card = Card.find(session[:cards].shift)
 
   erb :game
-end
-
-def create_round_and_deck(user)
-
 end
