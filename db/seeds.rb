@@ -1,5 +1,21 @@
 # seed data
 
+
+easy = {
+
+"1 + 1" => "2",
+"2 + 4" => "6",
+"5 + 1" => "6",
+"6 + 4" => "10",
+"7 + 1" => "8",
+"8 + 1" => "9",
+"23 + 1" => "24",
+"4 + 8" => "12",
+"2 + 8" => "10",
+"46 + 4" => "50",
+
+}
+
 capitals = {
 
 "Croatia" => "Zagreb",
@@ -533,6 +549,7 @@ what_is = {
 capitals_deck = Deck.create(:name => 'Capitals')
 lyrics_deck = Deck.create(:name => 'Lyrics')
 what_is_deck = Deck.create(:name => 'What is')
+easy_deck = Deck.create(:name => 'Easy')
 
 #create cards
 
@@ -548,26 +565,23 @@ what_is.each do |t,d|
   Card.create(:term => t, :definition => d, :deck => what_is_deck)
 end
 
+easy.each do |t,d|
+  Card.create(:term => t, :definition => d, :deck => easy_deck)
+end
+
 # create users
 
-User.create(:email => 'ben@email.com', :password => 'benf')
-User.create(:email => 'hannah@email.com', :password => 'hannahw')
-User.create(:email => 'chrism@email.com', :password => 'chrism')
-User.create(:email => 'alex@email.com', :password => 'alexr')
+# User.create(:email => 'ben@email.com', :password => 'benf')
+# User.create(:email => 'hannah@email.com', :password => 'hannahw')
+# User.create(:email => 'chrism@email.com', :password => 'chrism')
+# User.create(:email => 'alex@email.com', :password => 'alexr')
 
 # create rounds
 
-20.times do |x|
-  Round.create(:user_id => [1,2,3,4].sample, :deck_id => [1,2,3].sample)
-end	
+# 20.times do |x|
+#   Round.create(:user_id => [1,2,3,4].sample, :deck_id => [1,2,3].sample)
+# end	
 
-30.times do |x|
-	Guess.create(:round_id => [1,2,3,4,5,6,7,8,9,10].sample, :card_id => [1,2,3,4,5,6,7,8,9,10].sample, :correct => [true,false].sample)
-end
-
-
-
-
-
-
-
+# 30.times do |x|
+# 	Guess.create(:round_id => [1,2,3,4,5,6,7,8,9,10].sample, :card_id => [1,2,3,4,5,6,7,8,9,10].sample, :correct => [true,false].sample)
+# end

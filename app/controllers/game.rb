@@ -5,28 +5,29 @@ get "/game" do
 end
 
 get "/game/:deck_id" do
-  @round = @current_user.rounds << Round.create()
-  @deck = @round.last.deck = Deck.find(params[:deck_id])
-  @cards = @deck.cards
-  card_ids = []
-
-  @cards.each do |card|
-    card_ids << card.id 
-  end
-
-  session[:cards] = card_ids
+  @round = @current_user.rounds.create(:deck_id => params[:deck_id])
+  session[:round] = @round.id
+  @round.deck = Deck.find(params[:deck_id])
+  session[:cards] = @round.deck.cards.pluck(:id)
   @card = Card.find(session[:cards].shift)
 
   erb :game
 end
 
 post "/game/:deck_id/:card_id" do 
-  guess = params[:answer]
+  @round = Round.find_by_id(session[:round])
+  @guess = params[:answer]
   previous_card = Card.find(params[:card_id])
 
-  is_correct = (previous_card.definition == guess) 
+  is_correct = (previous_card.definition.downcase == @guess.downcase) 
+  
+  if is_correct 
+    @is_correct = "correct!"
+  else
+    @is_correct = "incorrect."
+  end
 
-  previous_card.guesses << Guess.create(correct: is_correct)
+  previous_card.guesses << @round.guesses.create(correct: is_correct)
 
   @card = Card.find(session[:cards].shift)
 

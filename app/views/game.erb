@@ -1,11 +1,28 @@
 <div class="container">
 	<div class="card">
 		<% if @card %>
-			<h2><%= @card.term %></h2>
-			<form id="answer" action="/game/<%=@deck.id%>/<%= @card.id %>" method="post" >
+			<p><%= @card.term %></p>
+			<form action="/game/<%=@round.deck.id%>/<%= @card.id %>" method="post" >
 				<input type="text" name="answer" placeholder="answer" autofocus="autofocus"/><br>
-				<button type="submit" name="answer"/>Submit</button>
+				<button type="submit" />Submit</button>
 			</form>
+ 
+			  <% if @guess %>
+
+					<% if @is_correct == "correct!" %>
+						<div class="correct">
+					<% else %>	
+						<div class="incorrect">
+					<% end %>	
+						Your last guess "<%= @guess %>" was...<%= @is_correct %>
+						</div>
+
+				<% end %>
+
+
+
+
+
 		<% else %>
 			<h1> Good Job, head over to the dashboard to view your results </h1>
 			<a href="/">Results</a>

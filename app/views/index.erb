@@ -1,7 +1,13 @@
 <div class="container">
-<h2>Welcome</h2>
+<h2>Welcome <%= @current_user.email %></h2>
 
 <h2>Stats</h2>
+
+Total rounds for user
+<%= @current_user.rounds.length %></br>
+Total guesses for user
+<%= @current_user.guesses %></br>
+
 <table border="1">
 
 <tr>
