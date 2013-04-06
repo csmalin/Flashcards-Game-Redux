@@ -18,6 +18,9 @@ end
 
 post "/game/:deck_id/:card_id" do 
   signed_in?
+  if session[:cards].length == 0
+    redirect '/welcome'
+  end
   @round = Round.find_by_id(session[:round])
   @guess = params[:answer]
   previous_card = Card.find(params[:card_id])

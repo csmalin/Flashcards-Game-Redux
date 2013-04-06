@@ -5,6 +5,19 @@
   border: 1px solid black;
 }
 
+.stats td, .stats th{
+  border: solid 1px black;
+  padding: 10px;
+}
+
+.welcome_stats {
+  padding: 30px;
+}
+
+.stats th {
+  background-color: gray;
+}
+
 th {
   text-align: left;
 }

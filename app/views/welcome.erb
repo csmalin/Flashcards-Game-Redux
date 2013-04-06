@@ -1,37 +1,40 @@
+<div class='welcome_stats'
+
 
 <h2>Welcome <%= @current_user.email %></h2>
 
-<h2>Stats</h2>
+<% if @current_user.rounds.length != 0%>
+<h2>Your Stats</h2>
 
-Total rounds for user
-<%= @current_user.rounds.length %></br>
-Total guesses for user
-<%= @current_user.guesses %></br>
+<table class="stats">
 
-Choose a flashcard deck:
-<% @decks.each do |d| %>
-<ul>
-  <li><a href="/game/<% d.id %>"><%= d.name %></a></li>
-</ul>
-<% end %>
+	<tr>
 
-<h2>Stats</h2>
-<table border="1">
+		<th>Round</th>
 
-<tr>
-  <th>Deck</th>
-  <th>Played</th>
-  <th>Average</th>
-</tr>
+	  <th>Deck</th>
 
-<% @decks.each do |x| %>
+		<th>Guessed</th>
 
-<!-- <tr>
-<td><%= @decks[x].name %></td>
-<td><%= @played[x] %></td>
-<td><%= @avg[x] %></td> -->
-</tr>
+		<th>Correct</th>		
 
-<% end %>
+		<th>Incorrect</th>		
 
+	</tr>
+	<% @current_user.rounds.each do |r| %>
+	<tr>
+		<td><%= r.id %></td>
+
+	  <td><%= r.deck.name %></td>
+
+		<td><%= r.guesses.length %></td>
+
+		<td><%= r.guesses.select {|g| g.correct}.count %></td>		
+
+		<td><%= r.guesses.select {|g| g.correct == false}.count %></td>		
+
+	</tr>
+		<% end %>
 </table>
+<% end %>
+</div>
