@@ -1,5 +1,10 @@
-<div class="container">
-<h2>Welcome</h2>
+
+Choose a flashcard deck:
+<% @decks.each do |d| %>
+<ul>
+  <li><a href="/game/<% d.id %>"><%= d.name %></a></li>
+</ul>
+<% end %>
 
 <h2>Stats</h2>
 <table border="1">
@@ -21,5 +26,3 @@
 <% end %>
 
 </table>
-
-</div>
