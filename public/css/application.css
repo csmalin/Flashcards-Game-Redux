@@ -1,9 +1,72 @@
 .container {
-  margin: 20px auto;
-  width: 600px;
-  padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
+
 }
+
 th {
   text-align: left;
+}
+
+nav{
+  margin-bottom: 15px;
+  background: black;
+  vertical-align: middle;
+}
+
+nav ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-align: right;
+}
+
+nav li {
+  display: inline;
+}
+
+nav li a {
+  font-size: 1.2em;
+  display: inline-block;
+  padding: 20px 10px;
+  margin:0 0px 0 0;
+  line-height: 20px;
+}
+
+.form-signin, .form-signup {
+  visibility: hidden;
+  max-width: 300px;
+  padding: 19px 29px 29px;
+  background-color: white;
+  border: 1px solid #000;
+  float:right;
+}
+
+.form-signin .form-signin-heading,
+.form-signin .checkbox,
+.form-signup .form-signup-heading,
+.form-signup .checkbox  {
+  margin-bottom: 10px;
+}
+
+.form-signin input[type="text"],
+.form-signin input[type="password"],
+.form-signup input[type="text"],
+.form-signup input[type="password"] {
+  font-size: 16px;
+  height: auto;
+  margin-bottom: 15px;
+  padding: 7px 9px;
+}
+
+
+#logo {
+  float: left;
+  line-height: 50px;
+  font-size: 48px;
+}
+
+#logo a{
+  color: rgb(90, 130, 218);
+  vertical-align: middle;
+  padding-left: 20px;
+  letter-spacing: -2px;
 }
