@@ -1,8 +1,8 @@
 get "/game" do
-  signed_in?
-  @decks = Deck.all
-
-  erb :deck
+    signed_in?
+    @decks = Deck.all
+    
+    erb :deck
 end
 
 get "/game/:deck_id" do
