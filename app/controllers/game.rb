@@ -12,6 +12,7 @@ get "/game/:deck_id" do
   @round.deck = Deck.find(params[:deck_id])
   session[:cards] = @round.deck.cards.pluck(:id)
   @card = Card.find(session[:cards].shift)
+  @deck = Deck.find(params[:deck_id])
 
   erb :game
 end

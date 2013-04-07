@@ -17,7 +17,7 @@ easy = {
 }
 
 capitals = {
-
+	
 "Croatia" => "Zagreb",
 "Armenia" => "Yerevan",
 "Cameroon" => "Yaounde",
