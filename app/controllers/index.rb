@@ -7,8 +7,8 @@ end
 post '/login' do
   user = User.authenticate(params[:email].downcase, params[:password])
   if user
-    session[:user_id] = @user.id
-    redirect '/'
+    session[:user_id] = user.id
+    redirect '/welcome'
   else
     redirect '/'
   end
