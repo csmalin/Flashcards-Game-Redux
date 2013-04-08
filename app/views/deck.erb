@@ -1,3 +1,4 @@
+
 <p>Choose a flashcard deck:</p>
 
 <% @decks.each do |d| %>
@@ -8,3 +9,13 @@
 <% end %>
 
 <p><a href="/create">Create a deck</a></p>
+
+Wanna play? Choose a flashcard deck:
+
+<% @decks.each do |d| %>
+
+	<ul>
+	  <li><a href="/game/<%= d.id %>"><%= d.name %></a></li>
+	</ul>
+
+<% end %>

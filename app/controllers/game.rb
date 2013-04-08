@@ -2,7 +2,7 @@ get "/game" do
     signed_in?
     @decks = Deck.all
     
-    erb :deck
+    erb :user
 end
 
 get "/game/:deck_id" do

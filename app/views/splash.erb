@@ -1,0 +1,34 @@
+<div class="splash">
+splash.rb
+<h3>Aw, splash! It's Flash!Cards!</h3>
+
+How's it going in the Flash!Card world?<br>
+Let's check some global stats!
+
+<table class="stats">
+
+	<tr>
+		<th>Rounds</th>
+	  <th>Deck</th>
+		<th>Guessed</th>
+		<th>Correct</th>		
+		<th>Incorrect</th>		
+	</tr>
+	
+	<% all_rounds = Round.all %>
+
+	<% all_rounds.each do |r| %>
+	
+	<tr>
+		<td><%= r.id %></td>
+	  <td><%= r.deck.name %></td>
+		<td><%= r.guesses.length %></td>
+		<td><%= r.guesses.select {|g| g.correct}.count %></td>		
+		<td><%= r.guesses.select {|g| g.correct == false}.count %></td>		
+	</tr>
+
+  <% end %>
+
+</table>
+
+</div>
