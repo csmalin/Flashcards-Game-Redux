@@ -587,10 +587,11 @@ end
 
 # create users
 
-# User.create(:email => 'ben@email.com', :password => 'benf')
-# User.create(:email => 'hannah@email.com', :password => 'hannahw')
-# User.create(:email => 'chrism@email.com', :password => 'chrism')
-# User.create(:email => 'alex@email.com', :password => 'alexr')
+User.create(:email => 'ben@email.com', :password => 'benf')
+User.create(:email => 'hannah@hannah.com', :password => 'hannah')
+User.create(:email => 'chrism@email.com', :password => 'chrism')
+User.create(:email => 'alex@email.com', :password => 'alexr')
+User.create(:email => 'asdf@asdf.com', :password => 'asdf')
 
 # create rounds
 

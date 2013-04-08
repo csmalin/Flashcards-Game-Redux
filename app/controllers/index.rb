@@ -44,7 +44,7 @@ post '/create' do
   @cards = cards.gsub!('"','')
   @cards = cards.gsub!('|',',')
   @cards = Hash[cards.split(",").each_slice(2).collect{ |k,v| [k,v] }]
-  
+
   @cards.each do |t,d|
     Card.create(:term => t, :definition => d, :deck => @deck)
   end
