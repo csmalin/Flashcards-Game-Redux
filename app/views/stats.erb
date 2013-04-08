@@ -15,23 +15,19 @@
 	<% rounds = @current_user.rounds.reverse_each.first(10) %>
 	
 	<% rounds.each do |r| %>
-	<% minutes = ((Time.now - r.created_at)/60).floor %>
+		<% minutes = ((Time.now - r.created_at)/60).floor %>
 
-	<tr>
-		<td><%= r.id %></td>
-		<td><%= "#{minutes} minutes ago" %></td>
-	  <td><%= r.deck.name %></td>
-		<td><%= r.guesses.length %></td>
-		<td><%= r.guesses.select {|g| g.correct}.count %></td>		
-		<td><%= r.guesses.select {|g| g.correct == false}.count %></td>		
-	</tr>
-		<% end %>
+		<tr>
+			<td><%= r.id %></td>
+			<td><%= "#{minutes} minutes ago" %></td>
+		  <td><%= r.deck.name %></td>
+			<td><%= r.guesses.length %></td>
+			<td><%= r.guesses.select {|g| g.correct}.count %></td>		
+			<td><%= r.guesses.select {|g| g.correct == false}.count %></td>		
+		</tr>
+		
+	<% end %>
+
 </table>
-<% end %>
 
-<% end %>
 </div>
-
-  <% end %>
-
-</table>
