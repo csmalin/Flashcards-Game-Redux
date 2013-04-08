@@ -27,3 +27,28 @@ post '/signup' do
   redirect '/'
 end
 
+get '/create' do
+  erb :create
+end
+
+post '/create' do
+ deck = Deck.create(:name => params[:name])
+ cards = params[:cards].inspect
+
+ @cards = cards.gsub!('\r\n','|')
+ @cards = cards.gsub!('"','')
+ @cards = cards.gsub!('|',',')
+
+ @cards = Hash[cards.split(",").each_slice(2).collect{ |k,v| [k,v] }]
+
+ @cards.each do |t,d|
+  Card.create(:term => t, :definition => d, :deck => deck)
+ end
+
+  redirect '/'
+end
+
+
+
+
+

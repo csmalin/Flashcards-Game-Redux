@@ -1,6 +1,6 @@
 <div class='welcome_stats'
 
-
+<% if @current_user %>
 <h2>Useremail: <%= @current_user.email %></h2>
 
 <% if @current_user.rounds.length != 0%>
@@ -36,5 +36,7 @@
 	</tr>
 		<% end %>
 </table>
+<% end %>
+
 <% end %>
 </div>
