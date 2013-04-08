@@ -1,5 +1,5 @@
 <div class="splash">
-splash.rb
+
 <h3>Aw, splash! It's Flash!Cards!</h3>
 
 How's it going in the Flash!Card world?<br>
@@ -8,23 +8,32 @@ Let's check some global stats!
 <table class="stats">
 
 	<tr>
-		<th>Rounds</th>
+		<th>Time</th>
+		<th>User</th>
 	  <th>Deck</th>
-		<th>Guessed</th>
-		<th>Correct</th>		
-		<th>Incorrect</th>		
+		<th>Number Guessed</th>
+		<th>Percentage Correct</th>	
 	</tr>
 	
-	<% all_rounds = Round.all %>
+	<% all_rounds = Round.last(5).reverse_each %>
 
 	<% all_rounds.each do |r| %>
 	
+	<% minutes = ((Time.now - r.created_at)/60).floor %>
+
+  <% correct = r.guesses.select {|g| g.correct}.count %>
+  <% total_guessed = r.guesses.length %>
+  <% average = correct/total_guessed.to_f %>
+	
+	<% total_cards = r.deck.cards.count %>
+	<% @perc_completed = total_guessed/total_cards.to_f %>
+
 	<tr>
-		<td><%= r.id %></td>
+		<td><%= "#{minutes} minutes ago" %></td>
+		<td><%= r.user.email %></td>
 	  <td><%= r.deck.name %></td>
 		<td><%= r.guesses.length %></td>
-		<td><%= r.guesses.select {|g| g.correct}.count %></td>		
-		<td><%= r.guesses.select {|g| g.correct == false}.count %></td>		
+		<td><%= "#{(average*100).to_i}%" %></td>
 	</tr>
 
   <% end %>
