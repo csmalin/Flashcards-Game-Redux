@@ -1,15 +1,19 @@
 get '/' do
-    signed_in?
+  if signed_in?
     @decks = Deck.all
-    erb :index
+    erb :user
+  else
+    erb :splash
+  end
 end
 
-post '/login' do
-  
+post '/user_page' do
   user = User.authenticate(params[:email].downcase, params[:password])
   if user != nil
     session[:user_id] = user.id
-    redirect '/'
+    signed_in?
+    @decks = Deck.all
+    erb :user
   else
     erb :login_issue
   end

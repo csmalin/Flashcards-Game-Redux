@@ -1,0 +1,21 @@
+<div class='welcome_stats'>
+user.erb<br>
+<% if @current_user %>
+
+	<h2>Welcome, <%= @current_user.email %></h2><br>
+
+	<%= erb :deck %>
+
+	<% if @current_user.rounds.length != 0%>
+
+    <%= erb :stats %>
+
+  <% end %>
+
+<% else %>
+
+    You're not logged in!
+
+<% end %>
+
+</div>

@@ -1,8 +1,10 @@
-Choose a flashcard deck:
-<%= @decks.count %>
+deck.erb<br>
+Wanna play? Choose a flashcard deck:
+
 <% @decks.each do |d| %>
 
-<ul>
-  <li><a href="/game/<%= d.id %>"><%= d.name %></a></li>
-</ul>
+	<ul>
+	  <li><a href="/game/<%= d.id %>"><%= d.name %></a></li>
+	</ul>
+
 <% end %>
