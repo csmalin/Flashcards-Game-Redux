@@ -6,6 +6,8 @@
 
 	<%= erb :deck %>
 
+	Want to <a href="/create">Create a Deck</a>?
+
 	<% if @current_user.rounds.length != 0%>
 
     <%= erb :stats %>

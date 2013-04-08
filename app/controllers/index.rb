@@ -32,22 +32,22 @@ post '/signup' do
 end
 
 get '/create' do
+  signed_in?
   erb :create
 end
 
 post '/create' do
- deck = Deck.create(:name => params[:name])
- cards = params[:cards].inspect
+  @deck = Deck.create(:name => params[:name])
+  cards = params[:cards]
 
- @cards = cards.gsub!('\r\n','|')
- @cards = cards.gsub!('"','')
- @cards = cards.gsub!('|',',')
-
- @cards = Hash[cards.split(",").each_slice(2).collect{ |k,v| [k,v] }]
-
- @cards.each do |t,d|
-  Card.create(:term => t, :definition => d, :deck => deck)
- end
+  @cards = cards.gsub!('\r\n','|')
+  @cards = cards.gsub!('"','')
+  @cards = cards.gsub!('|',',')
+  @cards = Hash[cards.split(",").each_slice(2).collect{ |k,v| [k,v] }]
+  
+  @cards.each do |t,d|
+    Card.create(:term => t, :definition => d, :deck => @deck)
+  end
 
   redirect '/'
 end
